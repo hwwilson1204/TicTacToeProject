@@ -35,7 +35,9 @@ public class ArrayGridCharacters {
 	}
 
 	public static void updateGrid(char[] spaces) {
-		
+		char[] row1= Arrays.copyOfRange(spaces, 0, 4);
+		char[] row2= Arrays.copyOfRange(spaces, 5, 9);
+		char[] row3= Arrays.copyOfRange(spaces, 10, 14);
 	}
 }
 
