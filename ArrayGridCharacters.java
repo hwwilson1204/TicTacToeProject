@@ -35,9 +35,9 @@ public class ArrayGridCharacters {
 	}
 
 	public static void updateGrid(char[] spaces) {
-			char[] row1= Arrays.copyOfRange(spaces, 0, 5);
-			char[] row2= Arrays.copyOfRange(spaces, 5, 10);
-			char[] row3= Arrays.copyOfRange(spaces, 10, 15);
+			char[] row1= Arrays.copyOfRange(spaces, 0, 5); //top 3 squares
+			char[] row2= Arrays.copyOfRange(spaces, 5, 10);//middle 3 squares
+			char[] row3= Arrays.copyOfRange(spaces, 10, 15);//bottom 3 squares
 			for (int n=0; n<5; n++) {
 				System.out.print(" " +row1[n]);
 			}
@@ -49,6 +49,7 @@ public class ArrayGridCharacters {
 			for (int n=0; n<5; n++) {
 				System.out.print(" "+row3[n]);
 			}
+			// fencepost algorithm row 1 --> then hgLine and next row
 		}
 }
 
