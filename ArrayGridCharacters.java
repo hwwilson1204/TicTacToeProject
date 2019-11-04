@@ -35,10 +35,21 @@ public class ArrayGridCharacters {
 	}
 
 	public static void updateGrid(char[] spaces) {
-		char[] row1= Arrays.copyOfRange(spaces, 0, 4);
-		char[] row2= Arrays.copyOfRange(spaces, 5, 9);
-		char[] row3= Arrays.copyOfRange(spaces, 10, 14);
-	}
+			char[] row1= Arrays.copyOfRange(spaces, 0, 5);
+			char[] row2= Arrays.copyOfRange(spaces, 5, 10);
+			char[] row3= Arrays.copyOfRange(spaces, 10, 15);
+			for (int n=0; n<5; n++) {
+				System.out.print(" " +row1[n]);
+			}
+			System.out.println("\n"+hgLine);
+			for (int n=0; n<5; n++) {
+				System.out.print(" "+row2[n]);
+			}
+			System.out.println("\n"+hgLine);
+			for (int n=0; n<5; n++) {
+				System.out.print(" "+row3[n]);
+			}
+		}
 }
 
 
