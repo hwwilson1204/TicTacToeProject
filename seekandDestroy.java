@@ -54,7 +54,7 @@ public class seekandDestroy {
 }
 
 
-
+/* Currently this code works except for when the inputed digit is 9, and invalid input only works once*/
 
 
 
