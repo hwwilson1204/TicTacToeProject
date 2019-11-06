@@ -22,7 +22,7 @@ public class seekandDestroy {
 			else {
 				valid = true;
 			}
-		}while(valid=false);
+		}while(valid==false);
 		int digit = input;
 		char ch = (char) (digit+49);
 		boolean found = false;
@@ -33,7 +33,7 @@ public class seekandDestroy {
 					data[i-1]='X';
 				}
 			}
-		}  while(found=false);
+		}  while(found==false);
 		System.out.println("Found at X:" + Arrays.toString(data));
 	}
 
@@ -42,7 +42,6 @@ public class seekandDestroy {
 		System.out.println("Invalid Digit, Digit must be between 1 and 9");
 		System.out.print("\nDigit(1-9)? = ");
 		int n=con.nextInt();
-		System.out.println(n);
 		return n;
 	}
 
@@ -54,7 +53,7 @@ public class seekandDestroy {
 }
 
 
-/* Currently this code works except for when the inputed digit is 9, and invalid input only works once*/
+/* Currently this code works except for when the inputed digit is 9*/
 
 
 
