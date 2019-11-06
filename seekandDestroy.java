@@ -41,6 +41,9 @@ public class seekandDestroy {
 		con.nextLine();
 		System.out.println("Invalid Digit, Digit must be between 1 and 9");
 		System.out.print("\nDigit(1-9)? = ");
+		while(!con.hasNextInt()) {
+			nonInteger(con);
+		}
 		int n=con.nextInt();
 		return n;
 	}
