@@ -6,18 +6,26 @@ public class seekandDestroy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		char[] data = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-		System.out.println("Data = " + Arrays.toString(data));
+		char[][] data = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '9', '8'}};
+		System.out.println("Data:");
+		for(int n=0; n<3; n++) {
+			for(int m=0; m<3; m++) {
+				System.out.print(data[n][m]+" ");
+			}
+			System.out.println();
+		}
 		System.out.print("Digit? = ");
 		while(!con.hasNextInt()) {
-			nonInteger(con);
+			validity.nonInteger(con);
 		}
 		int input=con.nextInt();	
 		boolean valid=false;
 		do {
 
 			if (input<1||input>9) {
-				input=invalidDigit();
+
+				input=validity.invalidDigit(con);
+				System.out.println(input);
 			}
 			else {
 				valid = true;
@@ -27,32 +35,29 @@ public class seekandDestroy {
 		char ch = (char) (digit+48);
 		boolean found = false;
 		do {
-			for (int i=0;i<data.length;i++) {
-				if (ch==data[i]) {
-					found=true;
-					data[i-1]='X';
-				}
+			for (int i=0;i<3;i++) {
+				for(int j=0;j<3;j++)
+					if (ch==data[i][j]) {
+						found=true;
+						data[i][j]='X';
+					}
 			}
+
 		}  while(found==false);
-		System.out.println("Found at X:" + Arrays.toString(data));
-	}
-
-	public static int invalidDigit() {
-		con.nextLine();
-		System.out.println("Invalid Digit, Digit must be between 1 and 9");
-		System.out.print("\nDigit(1-9)? = ");
-		while(!con.hasNextInt()) {
-			nonInteger(con);
+		System.out.println("Found at X:");
+		for(int n=0; n<3; n++) {
+			for(int m=0; m<3; m++) {
+				System.out.print(data[n][m]+" ");
+			}
+			System.out.println();
 		}
-		int n=con.nextInt();
-		return n;
 	}
 
-	public static void nonInteger(Scanner con) {
-		String inv=con.next();
-		System.out.println("Input is not an Integer");
-		System.out.print("\nDigit(1-9)? = ");
-	}
 }
+
+
+
+
+
 
 
