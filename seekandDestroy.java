@@ -24,7 +24,7 @@ public class seekandDestroy {
 			}
 		}while(valid==false);
 		int digit = input;
-		char ch = (char) (digit+49);
+		char ch = (char) (digit+48);
 		boolean found = false;
 		do {
 			for (int i=0;i<data.length;i++) {
@@ -54,9 +54,5 @@ public class seekandDestroy {
 		System.out.print("\nDigit(1-9)? = ");
 	}
 }
-
-
-/* Currently this code works except for when the inputed digit is 9*/
-
 
 
