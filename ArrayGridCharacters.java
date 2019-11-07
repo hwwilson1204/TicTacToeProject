@@ -24,7 +24,20 @@ public class arrayCharGrid {
 	public static void aiInput(char[][] spaces) {
 		int randInt=r.nextInt(9)+49;
 		char randChar = (char) randInt;
-
+		boolean found = false;
+		do {
+			for (int i=0;i<3;i++) {
+				for(int j=0;j<5;j++)
+					if (randChar==spaces[i][j]) {
+						found=true;
+						spaces[i][j]='X';
+					}
+					else {
+						randInt=r.nextInt(9)+49;
+						randChar=(char) randInt;
+					}
+			}
+		}  while(found==false);
 	}
 
 
@@ -49,6 +62,7 @@ public class arrayCharGrid {
 	}
 
 }
+
 
 
 
