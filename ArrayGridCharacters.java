@@ -15,15 +15,19 @@ public class arrayCharGrid {
 		updateGrid(spaces);
 	}
 
-
+	public static char generateRandom() {
+		int randInt;
+		// generate a random number between 1 and 9
+		randInt = r.nextInt(9 - 1 + 1) + 1;
+		char randChar = (char) randInt;
+		return randChar;}
 
 
 
 
 
 	public static void aiInput(char[][] spaces) {
-		int randInt=r.nextInt(9)+49;
-		char randChar = (char) randInt;
+		char randChar = generateRandom();
 		boolean found = false;
 		do {
 			for (int i=0;i<3;i++) {
@@ -33,8 +37,8 @@ public class arrayCharGrid {
 						spaces[i][j]='X';
 					}
 					else {
-						randInt=r.nextInt(9)+49;
-						randChar=(char) randInt;
+						
+						randChar= generateRandom();
 					}
 			}
 		}  while(found==false);
@@ -62,7 +66,3 @@ public class arrayCharGrid {
 	}
 
 }
-
-
-
-
