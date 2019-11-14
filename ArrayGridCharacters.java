@@ -18,7 +18,8 @@ public class arrayCharGrid {
 	public static char generateRandom() {
 		int randInt;
 		// generate a random number between 1 and 9
-		randInt = r.nextInt(9-1+1) + 1;
+		randInt = r.nextInt(9-1+1) + 49;
+		//ASCII Characters '1'-'9' are integers 49-57
 		char randChar = (char) randInt;
 		return randChar;}
 
