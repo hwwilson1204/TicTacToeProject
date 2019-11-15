@@ -20,14 +20,32 @@ public class arrayCharGrid {
 		boolean victory = false;
 		intInput(spaces);
 		updateGrid(spaces);
-		do {
+		for(int iterations=1; iterations<=4; iterations++) {
 			hInput(spaces);
 			updateGrid(spaces);
 			victory=victorious(spaces);
+			if(victory==true) {
+				break;
+			}
 			aiInput(spaces);
 			updateGrid(spaces);
 			victory=victorious(spaces);
-		}while(victory==false);
+			if(victory==true) {
+				break;
+			}
+		}
+		if(victory==true) {
+			char victor=victor(spaces);
+			if (victor=='X') {
+				System.out.println("CPU Wins!");
+			}
+			else if(victor=='O') {
+				System.out.println("You Win!");
+			}
+		}
+		else {
+			System.out.println("No Winner. Cat Game.");
+		}
 	}
 
 	public static int generateRandom() {
@@ -73,7 +91,7 @@ public class arrayCharGrid {
 		boolean found=false;
 		do {
 			for (int i=0;i<3;i++) {
-				for(int j=0;j<=4;j=j+2)
+				for(int j=0;j<=4;j=j+2) {
 					if (charIn!=spaces[i][j]) {
 						found=false;
 						System.out.println("Space in use. Please select another box.");
@@ -82,36 +100,41 @@ public class arrayCharGrid {
 					}
 					else {
 						found=true;
-						spaces[i][j]='X';
+						spaces[i][j]='O';
+						break;
 					}
-			}
-		}  while(found==false);
-	}
-
-	public static int digitSelection() {
-		System.out.print("Digit? = ");
-		while(!con.hasNextInt()) {
-			validity.nonInteger(con);
-		}
-		int input=con.nextInt();	
-		boolean valid=false;
-		do {
-			if (input<1||input>9) {
-
-				input=validity.invalidDigit(con);
-			}
-			else {
-				valid = true;
-			}
-		}while(valid==false);
-		return input;
-	}
-
-	public static char intConversion(int input) {
-		char inChar=(char) (input+49);
-		return inChar;
+				}
+				if(found==true) {
+					break;
+				}
+			} 
+		}while(found==false);
 	}
 	
+		public static int digitSelection() {
+			System.out.print("Digit? = ");
+			while(!con.hasNextInt()) {
+				validity.nonInteger(con);
+			}
+			int input=con.nextInt();	
+			boolean valid=false;
+			do {
+				if (input<1||input>9) {
+
+					input=validity.invalidDigit(con);
+				}
+				else {
+					valid = true;
+				}
+			}while(valid==false);
+			return input;
+		}
+
+		public static char intConversion(int input) {
+			char inChar=(char) (input+49);
+			return inChar;
+		}
+
 		public static void updateGrid(char[][] spaces) {
 			for(int l=0; l<5; l++) {
 				System.out.print(" "+spaces[0][l]);
@@ -167,6 +190,54 @@ public class arrayCharGrid {
 		   else
 		    victory==false */
 		}
-	}
 
+		public static char victor(char[][] spaces) {
+			char victor = 'N';
+			for(int row=0; row<=2; row++) {
+				if((spaces[row][0]==spaces[row][2])&&(spaces[row][0]==spaces[row][4])&&(spaces[row][4]==spaces[row][2])) {
+					if(spaces[row][0]=='X') {
+						victor='X';
+						return victor;
+					}
+					else if(spaces[row][0]=='O') {
+						victor='O';
+						return victor;
+					}
+				}
+			}
+			for(int column=0; column<=4; column=column+2) {
+				if((spaces[0][column]==spaces[1][column])&&(spaces[0][column]==spaces[2][column])&&(spaces[1][column]==spaces[2][column])) {
+					if(spaces[0][column]=='X') {
+						victor='X';
+						return victor;
+					}
+					else if(spaces[0][column]=='O') {
+						victor='O';
+						return victor;
+					}
+				}
+			}
+			if((spaces[0][0]==spaces[1][2])&&(spaces[1][2]==spaces[2][4])&&(spaces[2][4]==spaces[0][0])) {
+				if(spaces[0][0]=='X') {
+					victor='X';
+					return victor;
+				}
+				else if(spaces[0][0]=='O') {
+					victor='O';
+					return victor;
+				}
+			}
+			else if((spaces[2][0]==spaces[1][2])&&(spaces[2][0]==spaces[0][4])&&(spaces[0][4]==spaces[1][2])) {
+				if(spaces[2][0]=='X') {
+					victor='X';
+					return victor;
+				}
+				else if(spaces[2][0]=='O') {
+					victor='O';
+					return victor;
+				}
+			}
+			return victor;
+		}
+	}
 
