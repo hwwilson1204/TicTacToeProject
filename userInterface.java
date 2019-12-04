@@ -26,7 +26,7 @@ public class userInterface {
 	}
 	
 	public static void drawX(int square) {
-		
+		g.setColor(Color.red);
 		g.setFont(new Font ("SansSerif", Font.BOLD, 50));
 		
 		if (square == 1) {
@@ -58,7 +58,7 @@ public class userInterface {
 		}
 	}
 	public static void drawO(int square) {
-		
+		g.setColor(Color.black);
 		g.setFont(new Font ("SansSerif", Font.BOLD, 50));
 		
 		if (square == 1) {
@@ -88,9 +88,5 @@ public class userInterface {
 		if (square == 9) {
 			g.drawString("O", 355, 403);
 		}
-	}
-	
-	public static void youWin() {
-		
 	}
 }
