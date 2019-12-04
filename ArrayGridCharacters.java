@@ -7,6 +7,7 @@ public class ArrayGridCharacters {
 	public static Scanner con = new Scanner(System.in);
 	public static Random r = new Random();
 	public static final String hgLine = "-----------"; //horizontal lines that intersect vertical lines to create 3x3 grid	
+	public static userInterface ticTacToeBoard = new userInterface();
 	/*
 	 [0][0]  [0][1]  [0][2]  [0][3]  [0][4]
 	 [1][0]  [1][1]  [1][2]  [1][3]  [1][4]
@@ -15,9 +16,6 @@ public class ArrayGridCharacters {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
-		userInterface ticTacToeBoard = new userInterface();
 		ticTacToeBoard.setScreenBlank();
 		
 		char[][] spaces = {
@@ -114,7 +112,7 @@ public class ArrayGridCharacters {
 						found=true;
 						spaces[i][j]='O';
 						// draw O on drawing board:
-						ticTacToeBoard.drawO(input);
+						userInterface.drawO(input);
 						break;
 					}
 				}
